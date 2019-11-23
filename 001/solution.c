@@ -6,13 +6,13 @@ int main(int argc, char const *argv[]) {
         printf("USAGE: %s <highest number> \n", argv[0]);
         return EXIT_FAILURE;
     }
-    unsigned int sum = 0;
-    int n = atoi(argv[1]);
-    for(int i = 0; i < n; i++) {
+    unsigned long sum = 0;
+    unsigned long n = atoi(argv[1]);
+    for(unsigned long i = 0; i < n; i++) {
         if( i % 3 == 0 || i % 5 == 0) {
             sum += i;
         }
     }
-    printf("%u\n", sum);
+    printf("%lu\n", sum);
     return EXIT_SUCCESS;
 }
