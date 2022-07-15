@@ -60,7 +60,6 @@ int is_palindrome(int n) {
     int lower = n % 1000;
 
     int lower_rev = lower + ((lower % 10) - (lower / 100))*99;
-
     return upper == lower_rev;
 }
 
@@ -68,21 +67,20 @@ int main(int argc, char const *argv[]) {
     int sol = 0;
     int sol_i, sol_j;
 
-    for(int i = 999; i > 99; i -= 11) {
-        for(int j = 999; j > 99; j--) {
+    for(int i = 990; i > 99; i -= 11) {
+        for(int j = 999; i*j > sol; j--) {
 	    int prod = i*j;
-            if(prod > sol && is_palindrome(prod)) {
+            if(is_palindrome(prod)) {
                 sol = prod;
                 sol_i = i;
                 sol_j = j;
                 break;
-	    } else if(prod < sol) {
-                break;
-            }
+	    }
         }
     }
 
+    // comment out print for better timing
     printf("%d * %d = %d\n",sol_i, sol_j, sol);    
 
-    return 0;
+    return sol;
 }
